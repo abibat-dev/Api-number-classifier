@@ -39,12 +39,7 @@ def get_fun_fact(n):
     return "No fun fact available."
 
 @app.route('/api/classify-number', methods=['GET'])
-def classify_number():
-    # Get the number from query parameters
-    number = request.args.get('number')
-    if not number:
-        return jsonify({"number": "missing", "error": True}), 400
-
+def classify_number(number = ""):
     # Validate that it's an integer
     try:
         number = int(number)
